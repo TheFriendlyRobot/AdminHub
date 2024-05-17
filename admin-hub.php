@@ -152,7 +152,10 @@ if ( ! class_exists( 'GreenheartHub' ) ) {
                 require_once self::get_plugin_path( 'core/menu-parent.php' ); 
                 require_once self::get_plugin_path( 'core/menu-pages.php' ); 
                 require_once self::get_plugin_path( 'core/menu-methods.php');
+                require_once self::get_plugin_path( 'core/menu-options.php');
                 require_once self::get_plugin_path( 'menu/menu.php' ); 
+                Greenheart\Hub\AdminMenu::get_instance();
+                Greenheart\Hub\HubMenu::get_instance();
           #  endif;
         }
     }

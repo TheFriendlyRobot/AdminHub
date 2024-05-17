@@ -12,16 +12,16 @@ namespace Greenheart\Hub;
  * @package Greenheart Core
  * @subpackage Hub
  */
-class AdminMenuPage extends AdminMenu {
-    protected $title;
-    protected $menu_title;
-    protected $cap;
-    protected $slug;
-    protected $callback;
-    protected $icon;
-    protected $menuposition;
-    protected $type = 'submenu';
-    protected $parent = null;
+class AdminMenuPage{
+    public $title;
+    public $menu_title;
+    public $cap;
+    public $slug;
+    public $callback;
+    public $icon;
+    public $menuposition;
+    public $type = 'submenu';
+    public $parent = null;
     public $ready = false;
 
     private function __construct($title, $menu_title, $cap, $icon, $menuposition){
@@ -31,6 +31,7 @@ class AdminMenuPage extends AdminMenu {
         $this->slug = \sanitize_title( $title );
         $this->icon = $icon;
         $this->menuposition = $menuposition;
+
     }
     public static function add(string $title, string $menu_title = null, string $cap = 'manage_options', string $icon = 'dashicons-admin-generic', int $menuposition = 25 ) : static
     {  

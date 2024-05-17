@@ -11,7 +11,7 @@ namespace Greenheart\Hub;
 class HubMenu {
     public static $instance = null;
 
-    private static $pages;
+   # private static $pages;
 
     public static function get_instance() : HubMenu
     {
@@ -27,26 +27,16 @@ class HubMenu {
 
     }
     /**
-     * We create the main Greenheart Hub menu here. In addition to creating the main admin menu we provide an 
-     * API for other classes to add submenu pages (or even top-level menu pages). 
+     * We create the main Greenheart Hub menu here.  
      *  
      * */ 
     private function __construct() {
-        AdminMenu::Create(
+        $Instance = AdminMenu::get_instance();
+        $Instance::Create(
             AdminMenuPage::add('Greenheart Admin Menu','Greenheart Admin Menu', 'edit_pages', 'dashicons-admin-site', 15)
                 ->setSlug( \GreenheartHub::text_domain )
                 ->setMainMenu()
                 ->setCallback('main_menu')
       );
     }
-    /*
-    Wrapper function for AdminMenu 
-    */
-    public static function Create( AdminMenuPage $page ) : void 
-    {
-
-        AdminMenu::Create( $page );
-    }
 }
-
-HubMenu::get_instance();
